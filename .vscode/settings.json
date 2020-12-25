@@ -1,0 +1,10 @@
+{
+    "fsdeploy.nodes": [
+        {
+            "source": "C:\\Users\\tobia\\OneDrive\\Bureaublad\\Memory",
+            "target": "D:\\",
+            "include": "**/*.{mpy,py}"
+        }
+    ], 
+    "fsdeploy.deployOnSave": true
+}
