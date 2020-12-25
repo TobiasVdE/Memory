@@ -17,9 +17,9 @@ while True:
     pressed = set(trellis.pressed_keys)
     for press in pressed - current_press:
         for x in range(8):
-            trellis.pixels[x, 0] = RED
+            trellis.pixels[x, 0] = GREEN
             trellis.pixels[x, 1] = BLUE
-            trellis.pixels[x, 2] = RED
+            trellis.pixels[x, 2] = GREEN
             trellis.pixels[x, 3] = BLUE
     for release in current_press - pressed:
         trellis.pixels.fill(OFF)
