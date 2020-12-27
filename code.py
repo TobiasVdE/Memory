@@ -6,11 +6,14 @@ trellis = adafruit_trellism4.TrellisM4Express()
 trellis.pixels.auto_write = False
 
 def showGame(g, all):
+    print("Show game")
     for column in range(8):
         for row in range(4):
             cell = g.cells[column][row]
             if (cell.status or all):
                 trellis.pixels[column, row] = cell.colour
+            else:
+                trellis.pixels[column, row] = game.OFF
     trellis.pixels.show()        
 
 current_press = set()
@@ -24,10 +27,16 @@ while True:
     while True:
         pressed = set(trellis.pressed_keys)
         for press in pressed - current_press:
-            #g.keyPressed(press)
             column, row = press
             trellis.pixels[column, row] = g.cells[column][row].colour
+            trellis.pixels.show()        
+
+            if g.keyPressed(press):
+                showGame(g, False)
+        current_press = pressed
         trellis.pixels.show()
+
+
 
 
 
